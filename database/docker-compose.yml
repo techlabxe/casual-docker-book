@@ -1,0 +1,18 @@
+version: '3'
+services:
+  database:
+    image: mysql:5.7
+    volumes:
+      - ./dbdata:/var/lib/mysql
+      - ./conf/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./initSQLs:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpass
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: sampleUser
+      MYSQL_PASSWORD: password0123
+      TZ: Asia/Tokyo
+    user: "1000:1000"
+

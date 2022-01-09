@@ -1,0 +1,13 @@
+/database/dbdata
+/wordpress-*/db/dbdata
+/wordpress-1/wordpress/html
+/wordpress-2/wordpress/html
+/wordpress-3/wordpress/html
+/redmine-*/db/dbdata
+/gitea-*/db/dbdata
+/gitea-*/gitea
+/gitea-*/minio/data
+/jenkins-*/jenkins_home/
+/dind-1/jenkins
+/dood-*/jenkins_home/
+

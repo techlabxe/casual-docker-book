@@ -1,0 +1,29 @@
+version: '3'
+services:
+  redmine:
+    image: redmine:4.2.3
+    volumes:
+      - ./redmine/data/plugins:/usr/src/redmine/plugins
+      - ./redmine/data/themes:/usr/src/redmine/public/themes
+    ports:
+      - 80:3000
+    depends_on:
+      - redmine-db
+    environment:
+      REDMINE_DB_MYSQL: redmine-db
+      REDMINE_DB_PASSWORD: redminepass
+      REDMINE_DB_ENCODING: utf8mb4
+      TZ: Asia/Tokyo
+  redmine-db:
+    build:
+      context: ./db/docker
+      dockerfile: Dockerfile
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: redminepass
+      MYSQL_DATABASE: redmine
+      TZ: Asia/Tokyo
+    volumes:
+      - ./db/dbdata:/var/lib/mysql
+    user: "1000:1000"

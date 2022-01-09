@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins-agent:
+    image: jenkins/inbound-agent
+    volumes:
+      - ./jenkins_home:/home/jenkins
+    environment:
+      JENKINS_URL: http://192.168.0.128:8080/
+      JENKINS_SECRET: 560ed9f5eaf626702a3d1f4c13bca42cc2817df8f2cb11104932d2b3c8254f31 
+      JENKINS_AGENT_NAME: mylinux-agent
+      JENKINS_AGENT_WORKDIR: /home/jenkins
+      TZ: Asia/Tokyo
+      JAVA_OPTS: -Duser.timezone=Asia/Tokyo -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8
+    user: "1000:1000"
+

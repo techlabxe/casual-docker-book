@@ -1,0 +1,19 @@
+version: '3'
+services:
+  jenkins-dood-master:
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    group_add:
+      - 999   ## WSL2 の /var/run/docker.sock マウント時 GID
+    ports:
+      - 8080:8080
+      - 50000:50000
+    environment:
+      TZ: Asia/Tokyo
+      JAVA_OPTS: -Duser.timezone=Asia/Tokyo -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8
+
+

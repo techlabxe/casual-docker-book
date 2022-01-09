@@ -1,0 +1,11 @@
+version: '3'
+services:
+  jenkins-agent-win:
+    image: jenkins/inbound-agent:jdk11-nanoserver-1809
+    environment:
+      JENKINS_URL: http://192.168.0.128:8080/
+      JENKINS_SECRET: 5c42392d6daf71f53a0a6094f995e7ae637e52360ad9199fb839ea9899484ab4  
+      JENKINS_AGENT_NAME: mywindows-agent
+      TZ: Asia/Tokyo
+      JAVA_OPTS: -Duser.timezone=Asia/Tokyo -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8
+

@@ -1,0 +1,9 @@
+version: "3"
+services:
+  myapp:
+    image: openjdk:17.0-jdk-bullseye
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/home/app
+    tty: true

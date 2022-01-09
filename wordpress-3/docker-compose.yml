@@ -1,0 +1,32 @@
+version: '3'
+services:
+  wordpress:
+    build:
+      context: wordpress/docker
+      dockerfile: Dockerfile
+    volumes:
+      - ./wordpress/html:/var/www/html
+      - ./wordpress/conf/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - 80:80
+    depends_on:
+      - wp-db
+    environment:
+      WORDPRESS_DB_HOST: wp-db
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+      WORDPRESS_DB_NAME: wordpress
+      TZ: Asia/Tokyo
+  wp-db:
+    build:
+      context: ./db/docker
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpass
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+      MYSQL_DATABASE: wordpress
+      TZ: Asia/Tokyo
+    volumes:
+      - ./db/dbdata:/var/lib/mysql
+    user: "1000:1000"

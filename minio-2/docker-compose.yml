@@ -1,0 +1,15 @@
+version: '3'
+services:
+  minio:
+    image: minio/minio:latest
+    volumes:
+      - ./minio/data:/data
+      - ./minio/certs:/minio/certs
+    ports:
+      - 9000:9000
+      - 9001:9001
+    command: server /data --certs-dir=/minio/certs --console-address :9001
+    environment:
+      MINIO_ROOT_USER: minioAdminUser
+      MINIO_ROOT_PASSWORD: minioAdminPassword
+      TZ: Asia/Tokyo

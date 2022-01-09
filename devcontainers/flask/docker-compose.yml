@@ -1,0 +1,8 @@
+version: "3"
+services:
+  flask:
+    image: python:3.8
+    volumes:
+      - ./:/home/appdir
+    ports:
+      - 5000:5000

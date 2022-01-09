@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins-dind:
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    volumes:
+      - ./jenkins:/var/lib/jenkins
+    privileged: true
+    ports:
+      - 8080:8080
+      - 50000:50000
+    environment:
+      - TZ=Asia/Tokyo
+
