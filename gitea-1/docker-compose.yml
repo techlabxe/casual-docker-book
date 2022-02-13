@@ -5,8 +5,8 @@ services:
     volumes:
       - ./gitea:/data
     ports:
-      - 3000:3000
-      - 22:22
+      - "3000:3000"
+      - "22:22"
     depends_on:
       - gitea-db
     environment:

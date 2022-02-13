@@ -8,7 +8,7 @@ services:
       - ./wordpress/html:/var/www/html
       - ./wordpress/conf/php.ini:/usr/local/etc/php/php.ini
     ports:
-      - 80:80
+      - "80:80"
     depends_on:
       - wp-db
     environment:

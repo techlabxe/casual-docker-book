@@ -7,14 +7,14 @@ services:
       - ./wordpress/html:/var/www/html
       - ./web/log:/var/log/nginx
     ports:
-      - 80:80
+      - "80:80"
   wordpress:
     image: wordpress:5.8.2-php7.4-fpm
     volumes:
       - ./wordpress/html:/var/www/html
       - ./wordpress/conf/php.ini:/usr/local/etc/php/php.ini
     expose:
-      - '9000'
+      - "9000"
     depends_on:
       - wp-db
     environment:

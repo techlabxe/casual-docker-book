@@ -8,9 +8,9 @@ services:
       - ./redmine/data/plugins:/usr/src/redmine/plugins
       - ./redmine/data/themes:/usr/src/redmine/public/themes
     ports:
-      - 3000:3000
-      - 1234:1234
-      - 26162:26162
+      - "3000:3000"
+      - "1234:1234"
+      - "26162:26162"
     depends_on:
       - redmine-db
     environment:

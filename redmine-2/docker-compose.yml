@@ -6,7 +6,7 @@ services:
       - ./redmine/data/plugins:/usr/src/redmine/plugins
       - ./redmine/data/themes:/usr/src/redmine/public/themes
     ports:
-      - 80:3000
+      - "80:3000"
     depends_on:
       - redmine-db
     environment:

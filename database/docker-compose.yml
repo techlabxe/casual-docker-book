@@ -7,7 +7,7 @@ services:
       - ./conf/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./initSQLs:/docker-entrypoint-initdb.d
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: mysqlpass
       MYSQL_DATABASE: my_database
