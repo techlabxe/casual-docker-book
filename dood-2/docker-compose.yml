@@ -7,8 +7,8 @@ services:
     volumes:
       - ./jenkins_home:/var/jenkins_home
     ports:
-      - 8080:8080
-      - 50000:50000
+      - "8080:8080"
+      - "50000:50000"
     environment:
       DOCKER_HOST: tcp://192.168.0.128:2375   ## Docker が動いているホストのIP
       TZ: Asia/Tokyo
