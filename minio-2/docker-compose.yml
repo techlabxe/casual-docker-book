@@ -1,10 +1,10 @@
 version: '3'
 services:
   minio:
-    image: minio/minio:latest
+    image: minio/minio:RELEASE.2021-12-10T23-03-39Z
     volumes:
       - ./minio/data:/data
-      - ./minio/certs:/minio/certs
+      - ./certs:/minio/certs
     ports:
       - 9000:9000
       - 9001:9001

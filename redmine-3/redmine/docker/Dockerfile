@@ -5,6 +5,6 @@ RUN gem install ruby-debug-ide debase
 
 ADD start-with-debugger.sh /start-with-debugger.sh
 RUN chmod +x /start-with-debugger.sh
-RUN sed -i".org" -e 's/\passenger\ )/passenger\ |\ rdebug-ide)/' /docker-entrypoint.sh
+RUN sed -i ".org" -e 's/ passenger )/passenger | rdebug-ide)/' /docker-entrypoint.sh
 ENTRYPOINT ["/start-with-debugger.sh"]
 CMD [""]

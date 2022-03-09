@@ -4,7 +4,7 @@ cd /usr/src/redmine
 echo ${WAIT_LOOP}
 if [ "$WAIT_LOOP" ]; then
   echo "wait loop"
-  while :; do sleep 10; done
+  sleep infinity
 else
   /docker-entrypoint.sh \
     rdebug-ide \

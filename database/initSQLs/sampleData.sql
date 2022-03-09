@@ -1,3 +1,5 @@
+CREATE DATABASE IF not exists my_database
+USE my_database;
 DROP TABLE IF EXISTS t_mydata;
 
 CREATE TABLE t_mydata( id int(10), name varchar(255) );
